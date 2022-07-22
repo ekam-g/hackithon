@@ -17,6 +17,8 @@ class _defender extends State<defender> {
   bool _speechEnabled = false;
   String _lastWords = '';
   late Map results;
+  late bool ERROR;
+  late String whatError;
 
   @override
   void initState() {
@@ -62,13 +64,17 @@ class _defender extends State<defender> {
         "bad": Sentiment.analysis(_lastWords).words.bad.toString(),
         "comparative": Sentiment.analysis(_lastWords).comparative.toString(),
       };
+      ERROR = false;
     } catch (error) {
       results = {
         "score": 0.toString(),
         "good": "empty",
         "bad": "empty",
         "comparative": 0.toString(),
+        "error": error.toString(),
       };
+      ERROR = true;
+      whatError = error.toString();
     }
     return Scaffold(
       appBar: AppBar(
@@ -92,14 +98,14 @@ class _defender extends State<defender> {
                   child: Text(
                     // If listening is active show the recognized words
                     _speechToText.isListening
-                        ? '$_lastWords'
+                        ? _lastWords
                         // If listening isn't active but could be tell the user
                         // how to start it, otherwise indicate that speech
                         // recognition is not yet ready or not supported on
                         // the target device
                         : _speechEnabled
-                            ? 'Tap the microphone to start listening...'
-                            : 'Speech not available',
+                            ? _lastWords
+                            : 'Please Go To Setting And Change Permissions',
                   ),
                 ),
               ),
@@ -107,6 +113,17 @@ class _defender extends State<defender> {
             const Spacer(
               flex: 1,
             ),
+            ERROR
+                ? SizedBox(
+                    width: 200,
+                    child: Text(
+                      "Status: $whatError",
+                      textAlign: TextAlign.center,
+                    ))
+                : const SizedBox(
+                    width: 200,
+                    child: Text("Status: OK", textAlign: TextAlign.center)),
+            const Spacer(),
             Expanded(
               flex: 2,
               child: SingleChildScrollView(
