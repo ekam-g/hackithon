@@ -1,18 +1,37 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/screens/HomePage.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  try {
+    await Firebase.initializeApp(
+        options: const FirebaseOptions(
+            apiKey: "AIzaSyApAFvVrf4ZPsOwEAo3BYjgF9XDaOKphMk",
+            authDomain: "ml-helper-79dd9.firebaseapp.com",
+            projectId: "ml-helper-79dd9",
+            storageBucket: "ml-helper-79dd9.appspot.com",
+            messagingSenderId: "542503428292",
+            appId: "1:542503428292:web:fc252bc940450726406991",
+            measurementId: "G-5PEJ22PZSB"
+        ));
+  } on FirebaseException {
+    try {
+      await Firebase.initializeApp();
+    } on FirebaseException {
+      throw 'firebase not initialized error';
+    }
+  }
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ML Helper',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
