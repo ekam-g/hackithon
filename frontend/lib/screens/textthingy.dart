@@ -117,50 +117,50 @@ class _ML extends State<ML> {
                                   ),
                                 ),
                               )),
-                          Container(
-                              margin: const EdgeInsets.symmetric(horizontal: 5),
-                              padding: const EdgeInsets.only(top: 10),
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.white,
-                                  onPrimary: Colors.grey,
-                                  shadowColor: Colors.grey[400],
-                                  elevation: 10,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8.0)),
-                                ),
-                                onPressed: () {
-                                  Clipboard.setData(ClipboardData(text: scannedText));
-                                  const snackBar = SnackBar(
-                                    content: Text('Saved to clipboard'),
-                                  );
-                                  if (mounted) {
-                                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                                  }                                },
-                                child: Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      vertical: 5, horizontal: 5),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      const Icon(
-                                        Icons.calendar_view_day_rounded,
-                                        size: 30,
-                                      ),
-                                      Text(
-                                        "Copy",
-                                        style: TextStyle(
-                                            fontSize: 13, color: Colors.grey[600]),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )),
                         ],
                       ),
                       const SizedBox(
                         height: 20,
                       ),
+                      Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
+                          padding: const EdgeInsets.only(top: 10),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.white,
+                              onPrimary: Colors.grey,
+                              shadowColor: Colors.grey[400],
+                              elevation: 10,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0)),
+                            ),
+                            onPressed: () {
+                              Clipboard.setData(ClipboardData(text: scannedText));
+                              const snackBar = SnackBar(
+                                content: Text('Saved to clipboard'),
+                              );
+                              if (mounted) {
+                                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                              }                                },
+                            child: Container(
+                              margin: const EdgeInsets.symmetric(
+                                  vertical: 5, horizontal: 5),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.calendar_view_day_rounded,
+                                    size: 30,
+                                  ),
+                                  Text(
+                                    "Copy",
+                                    style: TextStyle(
+                                        fontSize: 13, color: Colors.grey[600]),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )),
                       Container(
                         child: Text(
                           scannedText,
