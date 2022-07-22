@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/backround.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../main.dart';
 import '../../widgets/coolButtion.dart';
@@ -91,7 +92,7 @@ class _loginFirestore extends State<loginFirestore> {
                     await prefs.setString('deleteAll', data['perm']);
                   });
                   Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => const MyApp()));
+                      MaterialPageRoute(builder: (context) => navbar()));
                 }).catchError((error) {
                   const SnackBar(
                     content: Text("Please fill all fields"),

@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/screens/HomePage.dart';
+import 'package:frontend/screens/login/loginChecker.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,11 +23,11 @@ Future<void> main() async {
       throw 'firebase not initialized error';
     }
   }
-  runApp(const MyApp());
+  runApp(const Start());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Start extends StatelessWidget {
+  const Start({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Home'),
+      home: const SplashScreen(),
     );
   }
 }
