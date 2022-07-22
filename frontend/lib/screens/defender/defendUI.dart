@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/coolButtion.dart';
+import 'package:frontend/widgets/coolText.dart';
+import 'package:sentiment_dart/sentiment_dart.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
-
 
 class defender extends StatefulWidget {
   defender({Key? key}) : super(key: key);
@@ -14,6 +16,7 @@ class _defender extends State<defender> {
   SpeechToText _speechToText = SpeechToText();
   bool _speechEnabled = false;
   String _lastWords = '';
+  late Map results;
 
   @override
   void initState() {
@@ -52,47 +55,93 @@ class _defender extends State<defender> {
 
   @override
   Widget build(BuildContext context) {
+    try {
+      results = {
+        "score": Sentiment.analysis(_lastWords).score.toString(),
+        "good": Sentiment.analysis(_lastWords).words.good.toString(),
+        "bad": Sentiment.analysis(_lastWords).words.bad.toString(),
+        "comparative": Sentiment.analysis(_lastWords).comparative.toString(),
+      };
+    } catch (error) {
+      results = {
+        "score": 0.toString(),
+        "good": "empty",
+        "bad": "empty",
+        "comparative": 0.toString(),
+      };
+    }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Speech Demo'),
+        title: coolText(
+          text: 'Defender',
+          fontSize: 20,
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                'Recognized words:',
-                style: TextStyle(fontSize: 20.0),
-              ),
+            const Spacer(
+              flex: 1,
             ),
             Expanded(
-              child: Container(
-                padding: EdgeInsets.all(16),
-                child: Text(
-                  // If listening is active show the recognized words
-                  _speechToText.isListening
-                      ? '$_lastWords'
-                  // If listening isn't active but could be tell the user
-                  // how to start it, otherwise indicate that speech
-                  // recognition is not yet ready or not supported on
-                  // the target device
-                      : _speechEnabled
-                      ? 'Tap the microphone to start listening...'
-                      : 'Speech not available',
+              flex: 10,
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    // If listening is active show the recognized words
+                    _speechToText.isListening
+                        ? '$_lastWords'
+                        // If listening isn't active but could be tell the user
+                        // how to start it, otherwise indicate that speech
+                        // recognition is not yet ready or not supported on
+                        // the target device
+                        : _speechEnabled
+                            ? 'Tap the microphone to start listening...'
+                            : 'Speech not available',
+                  ),
                 ),
               ),
             ),
+            const Spacer(
+              flex: 1,
+            ),
+            Expanded(
+              flex: 2,
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  width: 200,
+                  child: coolText(
+                    text: "Good Words : ${results['good']}\n\n"
+                        "Bad Words : ${results['bad']}\n",
+                    fontSize: 8,
+                  ),
+                ),
+              ),
+            ),
+            const Spacer(
+              flex: 1,
+            ),
+            Expanded(
+              flex: 1,
+              child: Text(
+                'score: ${results["score"]}',
+              ),
+            ),
+            ExpandedButton(
+                onPressed: _speechToText.isNotListening
+                    ? _startListening
+                    : _stopListening,
+                text: _speechToText.isNotListening ? "Start" : "Stop",
+                flex: 1,
+                fontSize: 20,
+                width: 200),
+            const Spacer(
+              flex: 1,
+            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed:
-        // If not yet listening for speech start, otherwise stop
-        _speechToText.isNotListening ? _startListening : _stopListening,
-        tooltip: 'Listen',
-        child: Icon(_speechToText.isNotListening ? Icons.mic_off : Icons.mic),
       ),
     );
   }
