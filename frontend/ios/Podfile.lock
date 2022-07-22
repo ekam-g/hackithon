@@ -829,8 +829,12 @@ PODS:
   - Protobuf (3.21.3)
   - shared_preferences_ios (0.0.1):
     - Flutter
+  - speech_to_text (0.0.1):
+    - Flutter
+    - Try
   - text_to_speech (0.0.1):
     - Flutter
+  - Try (2.1.1)
 
 DEPENDENCIES:
   - camera (from `.symlinks/plugins/camera/ios`)
@@ -843,6 +847,7 @@ DEPENDENCIES:
   - google_mlkit_text_recognition (from `.symlinks/plugins/google_mlkit_text_recognition/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
+  - speech_to_text (from `.symlinks/plugins/speech_to_text/ios`)
   - text_to_speech (from `.symlinks/plugins/text_to_speech/ios`)
 
 SPEC REPOS:
@@ -877,6 +882,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - Try
 
 EXTERNAL SOURCES:
   camera:
@@ -899,6 +905,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/image_picker_ios/ios"
   shared_preferences_ios:
     :path: ".symlinks/plugins/shared_preferences_ios/ios"
+  speech_to_text:
+    :path: ".symlinks/plugins/speech_to_text/ios"
   text_to_speech:
     :path: ".symlinks/plugins/text_to_speech/ios"
 
@@ -943,7 +951,9 @@ SPEC CHECKSUMS:
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   Protobuf: 25e5dd0944f6f05a4db360eed782af5dc9533633
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
+  speech_to_text: b43a7d99aef037bd758ed8e45d79bbac035d2dfe
   text_to_speech: 8669facdbd5b72d2939b810493defd991634f6f9
+  Try: 5ef669ae832617b3cee58cb2c6f99fb767a4ff96
 
 PODFILE CHECKSUM: 8f855a721af426855da6c8439f246e0457fe0afa
 

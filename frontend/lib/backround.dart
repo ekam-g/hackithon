@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_bar/bottom_bar.dart';
 import 'package:frontend/screens/HomePage.dart';
+import 'package:frontend/screens/defender/defendUI.dart';
 import 'package:frontend/screens/login/Settings.dart';
 import 'package:frontend/screens/textthingy.dart';
 import 'package:frontend/widgets/coolText.dart';
@@ -19,11 +20,11 @@ class _navbar extends State<navbar> {
     return Scaffold(
       body: PageView(
         controller: _pageController,
-        children:  const [
-          MyHomePage(title: 'Home'),
-          Text("implment"),
-          ML(),
-          Settings(),
+        children:   [
+          const MyHomePage(title: 'Home'),
+          defender(),
+          const ML(),
+          const Settings(),
         ],
         onPageChanged: (index) {
           setState(() => _currentPage = index);
@@ -47,9 +48,9 @@ class _navbar extends State<navbar> {
             activeTitleColor: Colors.blue.shade600,
           ),
           BottomBarItem(
-            icon: const Icon(Icons.school),
+            icon: const Icon(Icons.safety_check_rounded),
             title: coolText(
-              text: 'Implement',
+              text: 'Defender',
               fontSize: 10,
             ),
             activeColor: Colors.red,
