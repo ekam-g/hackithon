@@ -43,7 +43,6 @@ class _navbar extends State<navbar> {
             const Center(child: Text("implent this")),
             defender(),
             const ML(),
-            const Settings(),
           ],
         ),
         bottomNavigationBar: WaterDropNavBar(
@@ -73,10 +72,6 @@ class _navbar extends State<navbar> {
             BarItem(
               filledIcon: Icons.text_increase_sharp,
               outlinedIcon: Icons.text_fields_outlined,
-            ),
-            BarItem(
-              filledIcon: Icons.settings_applications_outlined,
-              outlinedIcon: Icons.settings_applications_rounded,
             ),
           ],
         ),

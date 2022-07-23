@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/coolText.dart';
+import 'login/Settings.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -11,8 +12,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +39,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            const Spacer(
+              flex: 20,
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Settings()),
+                );
+              },
+              icon: const Icon(Icons.settings),
+            ),
             const Spacer(),
-            coolText( text: "click one of the buttons below to get started", fontSize: 12),
+            coolText(
+                text: "click one of the buttons below to get started",
+                fontSize: 12),
           ],
         ),
       ),
