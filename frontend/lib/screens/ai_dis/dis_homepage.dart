@@ -47,105 +47,109 @@ class _DisHomepageState extends State<DisHomepage> {
                       return const Text('Error');
                     }
                     final display = snapshot.requireData;
-                    if (display["name1"]["name"] == null) {
-                      return const Text(
-                          "Please Upgrade Your Account to Offer More Services");
-                    }
+
                     if (snapshot.hasData) {
-                      return SizedBox(
-                        width: 300,
-                        height: 450,
-                        child: Column(
-                          children: [
-                            const Spacer(),
-                            ExpandedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DisMoredata(
-                                              data: display['name1'],
-                                              account: email,
-                                              user: 'name1',
-                                            )),
-                                  );
-                                },
-                                text: display["name1"]["name"].toString(),
-                                flex: 2,
-                                fontSize: 15,
-                                width: 200),
-                            const Spacer(),
-                            ExpandedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DisMoredata(
-                                              data: display['name2'],
-                                              account: email,
-                                              user: 'name2',
-                                            )),
-                                  );
-                                },
-                                text: display["name2"]["name"].toString(),
-                                flex: 2,
-                                fontSize: 15,
-                                width: 200),
-                            const Spacer(),
-                            ExpandedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DisMoredata(
-                                              data: display['name3'],
-                                              account: email,
-                                              user: 'name3',
-                                            )),
-                                  );
-                                },
-                                text: display["name3"]["name"].toString(),
-                                flex: 2,
-                                fontSize: 15,
-                                width: 200),
-                            const Spacer(),
-                            ExpandedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DisMoredata(
-                                              data: display['name4'],
-                                              account: email,
-                                              user: 'name4',
-                                            )),
-                                  );
-                                },
-                                text: display["name4"]["name"].toString(),
-                                flex: 2,
-                                fontSize: 15,
-                                width: 200),
-                            const Spacer(),
-                            ExpandedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => DisMoredata(
-                                              data: display['name5'],
-                                              account: email,
-                                              user: 'name5',
-                                            )),
-                                  );
-                                },
-                                text: display["name5"]["name"].toString(),
-                                flex: 2,
-                                fontSize: 15,
-                                width: 200),
-                            const Spacer(),
-                          ],
-                        ),
-                      );
+                      try {
+                        return SizedBox(
+                          width: 300,
+                          height: 450,
+                          child: Column(
+                            children: [
+                              const Spacer(),
+                              ExpandedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DisMoredata(
+                                                data: display['name1'],
+                                                account: email,
+                                                user: 'name1',
+                                              )),
+                                    );
+                                  },
+                                  text: display["name1"]["name"].toString(),
+                                  flex: 2,
+                                  fontSize: 15,
+                                  width: 200),
+                              const Spacer(),
+                              ExpandedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DisMoredata(
+                                                data: display['name2'],
+                                                account: email,
+                                                user: 'name2',
+                                              )),
+                                    );
+                                  },
+                                  text: display["name2"]["name"].toString(),
+                                  flex: 2,
+                                  fontSize: 15,
+                                  width: 200),
+                              const Spacer(),
+                              ExpandedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DisMoredata(
+                                                data: display['name3'],
+                                                account: email,
+                                                user: 'name3',
+                                              )),
+                                    );
+                                  },
+                                  text: display["name3"]["name"].toString(),
+                                  flex: 2,
+                                  fontSize: 15,
+                                  width: 200),
+                              const Spacer(),
+                              ExpandedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DisMoredata(
+                                                data: display['name4'],
+                                                account: email,
+                                                user: 'name4',
+                                              )),
+                                    );
+                                  },
+                                  text: display["name4"]["name"].toString(),
+                                  flex: 2,
+                                  fontSize: 15,
+                                  width: 200),
+                              const Spacer(),
+                              ExpandedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DisMoredata(
+                                                data: display['name5'],
+                                                account: email,
+                                                user: 'name5',
+                                              )),
+                                    );
+                                  },
+                                  text: display["name5"]["name"].toString(),
+                                  flex: 2,
+                                  fontSize: 15,
+                                  width: 200),
+                              const Spacer(),
+                            ],
+                          ),
+                        );
+                      } catch (e) {
+                        return const Center(
+                          child: Text(
+                              "Please Upgrade Your Account to Offer More Services or this was disabled"),
+                        );
+                      }
                     } else {
                       return const CircularProgressIndicator();
                     }
