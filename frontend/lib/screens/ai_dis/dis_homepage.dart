@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/coolButtion.dart';
 
 class DisHomepage extends StatefulWidget {
   const DisHomepage({Key? key}) : super(key: key);
@@ -31,10 +32,8 @@ class _DisHomepageState extends State<DisHomepage> {
                       .collection("stuff")
                       .doc(email)
                       .snapshots(),
-                  builder: (
-                    BuildContext context,
-                    AsyncSnapshot<DocumentSnapshot> snapshot,
-                  ) {
+                  builder: (BuildContext context,
+                      AsyncSnapshot<DocumentSnapshot> snapshot,) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const SizedBox(
                           height: 250,
@@ -56,7 +55,13 @@ class _DisHomepageState extends State<DisHomepage> {
                         child: Column(
                           children: [
                             const Spacer(),
-                            Text(display["name1"]["name"].toString()),
+                            ExpandedButton(onPressed: () {
+
+                            },
+                                text: display["name1"]["name"].toString(),
+                                flex: 2,
+                                fontSize: 15,
+                                width: 200),
                             const Spacer(),
                             Text(display["name2"]["name"].toString()),
                             const Spacer(),
