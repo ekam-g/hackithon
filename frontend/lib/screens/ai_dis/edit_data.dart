@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/widgets/coolText.dart';
+
+import '../../widgets/coolButtion.dart';
 
 class EditData extends StatefulWidget {
   const EditData(
@@ -47,13 +50,32 @@ class _EditDataState extends State<EditData> {
           const Spacer(),
           Expanded(
             flex: 10,
-            child: TextField(
-              controller: controller,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "New data",
+            child: SizedBox(
+              width: 300,
+              child: TextField(
+                controller: controller,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "New data",
+                ),
               ),
             ),
+          ),
+          const Spacer(),
+          ExpandedButton(
+            onPressed: () {
+              FirebaseFirestore.instance
+                  .collection("stuff")
+                  .doc(widget.account)
+                  .update({
+                widget.user: {"stuff": controller.text},
+              });
+              Navigator.pop(context);
+            },
+            width: 200,
+            flex: 1,
+            text: 'Send',
+            fontSize: 12,
           ),
           const Spacer(
             flex: 10,
