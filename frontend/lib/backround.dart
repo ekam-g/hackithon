@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:frontend/screens/HomePage.dart';
@@ -40,7 +42,7 @@ class _navbar extends State<navbar> {
           controller: pageController,
           children: <Widget>[
             const MyHomePage(title: 'Home'),
-            DisHomepage(),
+            const DisHomepage(),
             defender(),
             const ML(),
           ],
@@ -62,8 +64,8 @@ class _navbar extends State<navbar> {
               outlinedIcon: Icons.home_outlined,
             ),
             BarItem(
-                filledIcon: Icons.favorite_rounded,
-                outlinedIcon: Icons.favorite_border_rounded,
+              filledIcon: Icons.favorite_rounded,
+              outlinedIcon: Icons.favorite_border_rounded,
             ),
             BarItem(
               filledIcon: Icons.safety_check_rounded,

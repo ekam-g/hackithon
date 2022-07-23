@@ -3,11 +3,9 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../widgets/coolButtion.dart';
 
 class ML extends StatefulWidget {
   const ML({Key? key}) : super(key: key);
