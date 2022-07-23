@@ -46,10 +46,14 @@ class _EditDataState extends State<EditData> {
         children: [
           const Spacer(),
           coolText(
-              text: "Old data is \n\n" + widget.data['stuff'], fontSize: 20),
+              text: "Old data is \n\n" +
+                  widget.data['stuff'] +
+                  "\n\n"
+                      "Please Use Commas to separate the data",
+              fontSize: 15),
           const Spacer(),
           Expanded(
-            flex: 10,
+            flex: 5,
             child: SizedBox(
               width: 300,
               child: TextField(
@@ -68,12 +72,15 @@ class _EditDataState extends State<EditData> {
                   .collection("stuff")
                   .doc(widget.account)
                   .update({
-                widget.user: {"stuff": controller.text},
+                widget.user: {
+                  "name": widget.data['name'],
+                  "stuff": controller.text
+                },
               });
               Navigator.pop(context);
             },
             width: 200,
-            flex: 1,
+            flex: 3,
             text: 'Send',
             fontSize: 12,
           ),
