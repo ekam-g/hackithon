@@ -66,7 +66,7 @@ class _DisHomepageState extends State<DisHomepage> {
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
                                               data: display['name1'],
-                                              account: email,
+                                              account: email, user: 'name1',
                                             )),
                                   );
                                 },
@@ -81,8 +81,8 @@ class _DisHomepageState extends State<DisHomepage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
-                                              data: display['name2'],
-                                              account: email,
+                                              data: display['name'],
+                                              account: email, user: 'name2',
                                             )),
                                   );
                                 },
@@ -97,8 +97,8 @@ class _DisHomepageState extends State<DisHomepage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
-                                              data: display['name3'],
-                                              account: email,
+                                              data: display['name'],
+                                              account: email, user: 'name3',
                                             )),
                                   );
                                 },
@@ -113,8 +113,8 @@ class _DisHomepageState extends State<DisHomepage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
-                                              data: display['name4'],
-                                              account: email,
+                                              data: display['name'],
+                                              account: email, user: 'name4',
                                             )),
                                   );
                                 },
@@ -129,8 +129,8 @@ class _DisHomepageState extends State<DisHomepage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
-                                              data: display['name5'],
-                                              account: email,
+                                              data: display['name'],
+                                              account: email, user: 'name5',
                                             )),
                                   );
                                 },
