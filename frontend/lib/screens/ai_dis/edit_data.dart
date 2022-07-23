@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/coolText.dart';
 
 class EditData extends StatefulWidget {
   const EditData(
@@ -16,17 +17,47 @@ class EditData extends StatefulWidget {
 }
 
 class _EditDataState extends State<EditData> {
+  late TextEditingController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Edit Data of   " + widget.data['name']),
+        title: Text("Edit Data of " + widget.data['name']),
       ),
       body: Center(
           child: Column(
         children: [
-          Container(),
+          const Spacer(),
+          coolText(
+              text: "Old data is \n\n" + widget.data['stuff'], fontSize: 20),
+          const Spacer(),
+          Expanded(
+            flex: 10,
+            child: TextField(
+              controller: controller,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: "New data",
+              ),
+            ),
+          ),
+          const Spacer(
+            flex: 10,
+          ),
         ],
       )),
     );
