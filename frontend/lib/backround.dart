@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:frontend/screens/HomePage.dart';
 import 'package:frontend/screens/defender/defendUI.dart';
-import 'package:frontend/screens/login/Settings.dart';
 import 'package:frontend/screens/textthingy.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 

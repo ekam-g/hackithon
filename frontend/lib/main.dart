@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/screens/HomePage.dart';
 import 'package:frontend/screens/login/loginChecker.dart';
 
 Future<void> main() async {
@@ -34,7 +33,7 @@ class Start extends StatelessWidget {
     return MaterialApp(
       title: 'ML Helper',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.deepPurple,
       ),
       home: const SplashScreen(),
     );
