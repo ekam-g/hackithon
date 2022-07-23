@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/coolButtion.dart';
 
 import '../../widgets/coolText.dart';
 
 class DisMoredata extends StatefulWidget {
-  const DisMoredata({Key? key, required this.data, required this.account, required this.user})
+  const DisMoredata(
+      {Key? key, required this.data, required this.account, required this.user})
       : super(key: key);
   final Map data;
   final String account;
@@ -38,11 +40,34 @@ class _DisMoredataState extends State<DisMoredata> {
                 itemCount: stuff.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(stuff[index].toString(), textAlign: TextAlign.center,),
+                    title: Text(
+                      stuff[index].toString(),
+                      textAlign: TextAlign.center,
+                    ),
                   );
                 },
               ),
             ),
+            const Spacer(
+              flex: 1,
+            ),
+            ExpandedButton(
+                onPressed:(){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DisMoredata(
+                        data: widget.data,
+                        account: widget.account,
+                        user: widget.user,
+                      ),
+                    ),
+                  );
+                },
+                text: "Edit Data",
+                flex: 1,
+                fontSize: 20,
+                width: 200),
             const Spacer(
               flex: 1,
             ),
