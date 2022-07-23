@@ -15,6 +15,24 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.settings),
+            color: Colors.black,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Settings(),
+                ),
+              );
+            },
+          ),
+        ],
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -42,18 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             const Spacer(
-              flex: 20,
+              flex: 40,
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Settings()),
-                );
-              },
-              icon: const Icon(Icons.settings),
-            ),
-            const Spacer(),
             coolText(
                 text: "click one of the buttons below to get started",
                 fontSize: 12),
