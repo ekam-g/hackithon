@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:frontend/screens/HomePage.dart';
+import 'package:frontend/screens/ai_dis/dis_homepage.dart';
 import 'package:frontend/screens/defender/defendUI.dart';
 import 'package:frontend/screens/textthingy.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
@@ -39,7 +40,7 @@ class _navbar extends State<navbar> {
           controller: pageController,
           children: <Widget>[
             const MyHomePage(title: 'Home'),
-            const Center(child: Text("implent this")),
+            DisHomepage(),
             defender(),
             const ML(),
           ],
