@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DisMoredata extends StatefulWidget {
-  const DisMoredata({Key? key}) : super(key: key);
+  const DisMoredata({Key? key, required this.data}) : super(key: key);
+  final Map data;
 
   @override
   _DisMoredataState createState() => _DisMoredataState();

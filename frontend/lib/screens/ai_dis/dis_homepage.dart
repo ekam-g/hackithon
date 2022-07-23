@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/screens/ai_dis/dis_moredata.dart';
 import 'package:frontend/widgets/coolButtion.dart';
+import 'package:frontend/widgets/coolText.dart';
 
 class DisHomepage extends StatefulWidget {
   const DisHomepage({Key? key}) : super(key: key);
@@ -32,8 +34,10 @@ class _DisHomepageState extends State<DisHomepage> {
                       .collection("stuff")
                       .doc(email)
                       .snapshots(),
-                  builder: (BuildContext context,
-                      AsyncSnapshot<DocumentSnapshot> snapshot,) {
+                  builder: (
+                    BuildContext context,
+                    AsyncSnapshot<DocumentSnapshot> snapshot,
+                  ) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const SizedBox(
                           height: 250,
@@ -55,21 +59,84 @@ class _DisHomepageState extends State<DisHomepage> {
                         child: Column(
                           children: [
                             const Spacer(),
-                            ExpandedButton(onPressed: () {
-
-                            },
+                            ExpandedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name1'],
+                                            )),
+                                  );
+                                },
                                 text: display["name1"]["name"].toString(),
                                 flex: 2,
                                 fontSize: 15,
                                 width: 200),
                             const Spacer(),
-                            Text(display["name2"]["name"].toString()),
+                            ExpandedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name2'],
+                                            )),
+                                  );
+                                },
+                                text: display["name2"]["name"].toString(),
+                                flex: 2,
+                                fontSize: 15,
+                                width: 200),
                             const Spacer(),
-                            Text(display["name3"]["name"].toString()),
+                            ExpandedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name3'],
+                                            )),
+                                  );
+                                },
+                                text: display["name3"]["name"].toString(),
+                                flex: 2,
+                                fontSize: 15,
+                                width: 200),
                             const Spacer(),
-                            Text(display["name4"]["name"].toString()),
+                            ExpandedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name4'],
+                                            )),
+                                  );
+                                },
+                                text: display["name4"]["name"].toString(),
+                                flex: 2,
+                                fontSize: 15,
+                                width: 200),
                             const Spacer(),
-                            Text(display["name5"]["name"].toString()),
+                            ExpandedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name5'],
+                                            )),
+                                  );
+                                },
+                                text: display["name5"]["name"].toString(),
+                                flex: 2,
+                                fontSize: 15,
+                                width: 200),
+                            const Spacer(
+                              flex: 1,
+                            ),
+                            coolText(text: "Your account allows 5 people max, please upgrade to add more", fontSize: 12),
                             const Spacer(),
                           ],
                         ),
