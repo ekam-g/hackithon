@@ -19,7 +19,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Spacer(),
+            const Spacer(
+              flex: 22,
+            ),
             coolText(
               text: 'Welcome to ML Helper!',
               fontSize: 20,
