@@ -12,10 +12,16 @@ class DisHomepage extends StatefulWidget {
 }
 
 class _DisHomepageState extends State<DisHomepage> {
-  String email = FirebaseAuth.instance.currentUser?.email.toString() ?? "Error";
+  String email = FirebaseAuth.instance.currentUser?.email.toString() ?? "empty";
 
   @override
   Widget build(BuildContext context) {
+    if (email == "empty") {
+      return const Center(
+        child: Text(
+            "Please Upgrade Your Account to Offer More Services or this was disabled"),
+      );
+    }
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -50,99 +56,107 @@ class _DisHomepageState extends State<DisHomepage> {
 
                     if (snapshot.hasData) {
                       try {
-                        return SizedBox(
-                          width: 300,
-                          height: 450,
-                          child: Column(
-                            children: [
-                              const Spacer(),
-                              ExpandedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => DisMoredata(
-                                                data: display['name1'],
-                                                account: email,
-                                                user: 'name1',
-                                              )),
-                                    );
-                                  },
-                                  text: display["name1"]["name"].toString(),
-                                  flex: 2,
-                                  fontSize: 15,
-                                  width: 200),
-                              const Spacer(),
-                              ExpandedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => DisMoredata(
-                                                data: display['name2'],
-                                                account: email,
-                                                user: 'name2',
-                                              )),
-                                    );
-                                  },
-                                  text: display["name2"]["name"].toString(),
-                                  flex: 2,
-                                  fontSize: 15,
-                                  width: 200),
-                              const Spacer(),
-                              ExpandedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => DisMoredata(
-                                                data: display['name3'],
-                                                account: email,
-                                                user: 'name3',
-                                              )),
-                                    );
-                                  },
-                                  text: display["name3"]["name"].toString(),
-                                  flex: 2,
-                                  fontSize: 15,
-                                  width: 200),
-                              const Spacer(),
-                              ExpandedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => DisMoredata(
-                                                data: display['name4'],
-                                                account: email,
-                                                user: 'name4',
-                                              )),
-                                    );
-                                  },
-                                  text: display["name4"]["name"].toString(),
-                                  flex: 2,
-                                  fontSize: 15,
-                                  width: 200),
-                              const Spacer(),
-                              ExpandedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => DisMoredata(
-                                                data: display['name5'],
-                                                account: email,
-                                                user: 'name5',
-                                              )),
-                                    );
-                                  },
-                                  text: display["name5"]["name"].toString(),
-                                  flex: 2,
-                                  fontSize: 15,
-                                  width: 200),
-                              const Spacer(),
-                            ],
-                          ),
+                        return Column(
+                          children: [
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            SizedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name1'],
+                                              account: email,
+                                              user: 'name1',
+                                            )),
+                                  );
+                                },
+                                text: display["name1"]["name"].toString(),
+                                height: 50,
+                                fontSize: 15,
+                                width: 200),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            SizedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name2'],
+                                              account: email,
+                                              user: 'name2',
+                                            )),
+                                  );
+                                },
+                                text: display["name2"]["name"].toString(),
+                                height: 50,
+                                fontSize: 15,
+                                width: 200),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            SizedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name3'],
+                                              account: email,
+                                              user: 'name3',
+                                            )),
+                                  );
+                                },
+                                text: display["name3"]["name"].toString(),
+                                height: 50,
+                                fontSize: 15,
+                                width: 200),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            SizedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name4'],
+                                              account: email,
+                                              user: 'name4',
+                                            )),
+                                  );
+                                },
+                                text: display["name4"]["name"].toString(),
+                                height: 50,
+                                fontSize: 15,
+                                width: 200),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            SizedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DisMoredata(
+                                              data: display['name5'],
+                                              account: email,
+                                              user: 'name5',
+                                            )),
+                                  );
+                                },
+                                text: display["name5"]["name"].toString(),
+                                height: 50,
+                                fontSize: 15,
+                                width: 200),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                          ],
                         );
                       } catch (e) {
                         return const Center(
