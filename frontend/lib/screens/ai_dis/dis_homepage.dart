@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/screens/ai_dis/dis_moredata.dart';
 import 'package:frontend/widgets/coolButtion.dart';
-import 'package:frontend/widgets/coolText.dart';
 
 class DisHomepage extends StatefulWidget {
   const DisHomepage({Key? key}) : super(key: key);

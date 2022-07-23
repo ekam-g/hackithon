@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/widgets/coolButtion.dart';
 
 import '../../widgets/coolText.dart';
+import 'edit_data.dart';
 
 class DisMoredata extends StatefulWidget {
   const DisMoredata(
@@ -56,7 +57,7 @@ class _DisMoredataState extends State<DisMoredata> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DisMoredata(
+                      builder: (context) => EditData(
                         data: widget.data,
                         account: widget.account,
                         user: widget.user,
