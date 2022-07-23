@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             CircleAvatar(
               radius: 100,
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.black,
               child: Padding(
                 padding: const EdgeInsets.all(2), // Border radius
                 child: ClipOval(
