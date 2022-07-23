@@ -66,6 +66,7 @@ class _DisHomepageState extends State<DisHomepage> {
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
                                               data: display['name1'],
+                                              account: email,
                                             )),
                                   );
                                 },
@@ -81,6 +82,7 @@ class _DisHomepageState extends State<DisHomepage> {
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
                                               data: display['name2'],
+                                              account: email,
                                             )),
                                   );
                                 },
@@ -96,6 +98,7 @@ class _DisHomepageState extends State<DisHomepage> {
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
                                               data: display['name3'],
+                                              account: email,
                                             )),
                                   );
                                 },
@@ -111,6 +114,7 @@ class _DisHomepageState extends State<DisHomepage> {
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
                                               data: display['name4'],
+                                              account: email,
                                             )),
                                   );
                                 },
@@ -126,6 +130,7 @@ class _DisHomepageState extends State<DisHomepage> {
                                     MaterialPageRoute(
                                         builder: (context) => DisMoredata(
                                               data: display['name5'],
+                                              account: email,
                                             )),
                                   );
                                 },
@@ -133,10 +138,6 @@ class _DisHomepageState extends State<DisHomepage> {
                                 flex: 2,
                                 fontSize: 15,
                                 width: 200),
-                            const Spacer(
-                              flex: 1,
-                            ),
-                            coolText(text: "Your account allows 5 people max, please upgrade to add more", fontSize: 12),
                             const Spacer(),
                           ],
                         ),
